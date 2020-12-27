@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'dj_puro.apps.DjPuroConfig',
+    'api.apps.ApiConfig',
 ]
 
 MIDDLEWARE = [
