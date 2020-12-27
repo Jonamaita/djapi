@@ -1,0 +1,8 @@
+black
+flake8
+isort
+pip
+pycodestyle
+pylint
+pylint-celery
+pylint-django
