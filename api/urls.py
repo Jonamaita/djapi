@@ -6,7 +6,7 @@ from .views import ProductList, ProductDetail
 
 urlpatterns = [
     path(
-        "v1/product_list/",
+        "v1/products/",
         ProductList.as_view(),
         name="product_list"
     ),
