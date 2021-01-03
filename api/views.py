@@ -8,7 +8,11 @@ View for api app
 from rest_framework import generics
 
 from .models import Product
-from .serializers import ProductSerializer
+from .serializers import (
+    CategorySerializer,
+    ProductSerializer,
+    SubCategorySerializer,
+)
 
 # # Class based views
 # class ProductList(APIView):
@@ -56,3 +60,19 @@ class ProductDetail(generics.RetrieveDestroyAPIView):
 
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+
+
+class CategorySave(generics.CreateAPIView):
+    """
+    Category save view. Only for create category
+    """
+
+    serializer_class = CategorySerializer
+
+
+class SubCategorySave(generics.CreateAPIView):
+    """
+    SubCategory save view. Only for create subcategory
+    """
+
+    serializer_class = SubCategorySerializer
