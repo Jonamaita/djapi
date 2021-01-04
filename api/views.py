@@ -7,7 +7,7 @@ View for api app
 # from rest_framework.views import APIView
 from rest_framework import generics
 
-from .models import Product
+from .models import Product, Category, SubCategory
 from .serializers import (
     CategorySerializer,
     ProductSerializer,
@@ -62,6 +62,25 @@ class ProductDetail(generics.RetrieveDestroyAPIView):
     serializer_class = ProductSerializer
 
 
+class CategoryList(generics.ListCreateAPIView):
+    """
+    Category list view
+    """
+
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+
+class SubCategoryList(generics.ListCreateAPIView):
+    """
+    SubCategory List view
+    """
+
+    queryset = SubCategory.objects.all()
+    serializer_class = SubCategorySerializer
+
+
+# Generics view for only create object (not in use)
 class CategorySave(generics.CreateAPIView):
     """
     Category save view. Only for create category
