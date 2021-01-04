@@ -3,7 +3,7 @@ urls for api app
 """
 from django.urls import path
 
-from .views import CategorySave, ProductDetail, ProductList, SubCategorySave
+from .views import CategoryList, ProductDetail, ProductList, SubCategoryList
 
 urlpatterns = [
     path(
@@ -18,12 +18,12 @@ urlpatterns = [
     ),
     path(
         "v1/category/",
-        CategorySave.as_view(),
-        name="category_save",
+        CategoryList.as_view(),
+        name="category_list",
     ),
     path(
         "v1/subcategory/",
-        SubCategorySave.as_view(),
-        name="subcategory_save",
+        SubCategoryList.as_view(),
+        name="subcategory_list",
     ),
 ]

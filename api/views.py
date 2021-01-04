@@ -7,7 +7,7 @@ View for api app
 # from rest_framework.views import APIView
 from rest_framework import generics
 
-from .models import Product, Category, SubCategory
+from .models import Category, Product, SubCategory
 from .serializers import (
     CategorySerializer,
     ProductSerializer,
