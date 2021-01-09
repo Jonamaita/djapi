@@ -3,7 +3,14 @@ urls for api app
 """
 from django.urls import path
 
-from .views import CategoryList, ProductDetail, ProductList, SubCategoryList
+from .views import (
+    CategoryDetail,
+    CategoryList,
+    ProductDetail,
+    ProductList,
+    SubCategoryList,
+    SubCategoryCategory,
+)
 
 urlpatterns = [
     path(
@@ -25,5 +32,16 @@ urlpatterns = [
         "v1/subcategory/",
         SubCategoryList.as_view(),
         name="subcategory_list",
+    ),
+    path(
+        "v1/category/<int:pk>",
+        CategoryDetail.as_view(),
+        name="category_list",
+    ),
+    # Listar las subcategorias de una categoria
+    path(
+        "v1/category/<int:pk>/subcategory/",
+        SubCategoryCategory.as_view(),
+        name="subcategory_category_list",
     ),
 ]
