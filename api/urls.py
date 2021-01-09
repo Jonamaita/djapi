@@ -4,12 +4,13 @@ urls for api app
 from django.urls import path
 
 from .views import (
+    AddSubCategory,
     CategoryDetail,
     CategoryList,
     ProductDetail,
     ProductList,
-    SubCategoryList,
     SubCategoryCategory,
+    SubCategoryList,
 )
 
 urlpatterns = [
@@ -43,5 +44,11 @@ urlpatterns = [
         "v1/category/<int:pk>/subcategory/",
         SubCategoryCategory.as_view(),
         name="subcategory_category_list",
+    ),
+    # Agregar Subcategoria
+    path(
+        "v1/category/<int:cat_pk>/addsubcategory/",
+        AddSubCategory.as_view(),
+        name="add_subcategory",
     ),
 ]
