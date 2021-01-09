@@ -2,7 +2,7 @@
 View for api app
 """
 
-from rest_framework import generics, status
+from rest_framework import generics, status, viewsets
 
 # from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
@@ -139,3 +139,13 @@ class AddSubCategory(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
+
+
+# Usando Viewset, con viewset se crea todo el crud completo
+class ProductViewSet(viewsets.ModelViewSet):
+    """
+    Viewset for Product Endpoint
+    """
+
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
