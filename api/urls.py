@@ -2,6 +2,7 @@
 urls for api app
 """
 from django.urls import path
+from rest_framework import routers
 
 from .views import (
     AddSubCategory,
@@ -9,9 +10,14 @@ from .views import (
     CategoryList,
     ProductDetail,
     ProductList,
+    ProductViewSet,
     SubCategoryCategory,
     SubCategoryList,
 )
+
+# Cojunto de vista para products
+router = routers.DefaultRouter()
+router.register(r"v2/products", ProductViewSet, basename="product")
 
 urlpatterns = [
     path(
@@ -52,3 +58,5 @@ urlpatterns = [
         name="add_subcategory",
     ),
 ]
+
+urlpatterns += router.urls
