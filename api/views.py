@@ -2,10 +2,11 @@
 View for api app
 """
 
+from rest_framework import generics, status
+
 # from django.shortcuts import get_object_or_404
-# from rest_framework.response import Response
-# from rest_framework.views import APIView
-from rest_framework import generics
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from .models import Category, Product, SubCategory
 from .serializers import (
@@ -120,3 +121,21 @@ class SubCategoryCategory(generics.ListCreateAPIView):
         return queryset
 
     serializer_class = SubCategorySerializer
+
+
+class AddSubCategory(APIView):
+    """
+    Add a subcategory
+    """
+
+    def post(self, request, cat_pk):
+        """
+        :param cat_pk: id or pk of category to add subcategory
+        """
+        description = self.request.data.get("description")
+        data = {"description": description, "category": cat_pk}
+        serializer = SubCategorySerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_404_NOT_FOUND)
