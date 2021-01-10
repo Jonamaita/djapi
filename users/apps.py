@@ -8,5 +8,6 @@ class UsersConfig(AppConfig):
     """
     Users application settings
     """
+
     name = "users"
-    verbose_name = "users"
+    verbose_name = "Users"
