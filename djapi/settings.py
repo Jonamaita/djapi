@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'dj_puro.apps.DjPuroConfig',
     'api.apps.ApiConfig',
-    'user.apps.UsersConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
