@@ -1,5 +1,12 @@
+"""
+Users aplication module
+"""
 from django.apps import AppConfig
 
 
 class UsersConfig(AppConfig):
-    name = 'users'
+    """
+    Users application settings
+    """
+    name = "users"
+    verbose_name = "users"
