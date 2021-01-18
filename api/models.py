@@ -21,7 +21,7 @@ class OwnerModel(models.Model):
         abstract = True
 
 
-class Category(models.Model):
+class Category(OwnerModel):
     """
     Category Model
     """
@@ -40,7 +40,7 @@ class Category(models.Model):
         verbose_name_plural = "Categories"
 
 
-class SubCategory(models.Model):
+class SubCategory(OwnerModel):
     """
     Category Model
     """
@@ -61,7 +61,7 @@ class SubCategory(models.Model):
         unique_together = ("category", "description")
 
 
-class Product(models.Model):
+class Product(OwnerModel):
     """
     Product Model
     """
