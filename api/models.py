@@ -2,6 +2,23 @@
     Models api app
 """
 from django.db import models
+from django.conf import settings
+
+
+class OwnerModel(models.Model):
+    """
+    Class owner
+
+    Es una clase abstracta, quiere decir que no se generará como un modelo. 
+    El campo owner e agregará al modelo que herede esta clase.
+    """
+    owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE
+    )
+
+    class Meta:
+        abstract = True
 
 
 class Category(models.Model):
