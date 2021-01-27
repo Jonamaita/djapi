@@ -3,6 +3,7 @@ View for api app
 """
 
 from rest_framework import generics, status, viewsets
+from users.permissions import IsOwner
 
 # from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
@@ -149,3 +150,4 @@ class ProductViewSet(viewsets.ModelViewSet):
 
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = [IsOwner]
