@@ -2,7 +2,7 @@
 View for api app
 """
 
-from rest_framework import generics, status, viewsets
+from rest_framework import generics, status, viewsets, permissions
 from users.permissions import IsOwner
 
 # from django.shortcuts import get_object_or_404
@@ -150,4 +150,5 @@ class ProductViewSet(viewsets.ModelViewSet):
 
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = [IsOwner]
+    # Los permisos deben estar en orden en que queremos que se ejecuten
+    permission_classes = [permissions.IsAuthenticated, IsOwner]
